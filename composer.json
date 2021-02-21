@@ -1,0 +1,50 @@
+{
+    "name": "chefhasteeth/from-fixture",
+    "description": "FromFixture allows you to load fixture data from JSON files using Laravel's built-in factories.",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "fixtures",
+        "seeders"
+    ],
+    "authors": [
+        {
+            "name": "Sam Bedwell",
+            "email": "hello@chefhasteeth.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Chefhasteeth\\FromFixture\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Chefhasteeth\\FromFixture\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0",
+        "laravel/framework": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.13",
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Chefhasteeth\\FromFixture\\FromFixtureServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    }
+}
