@@ -54,7 +54,7 @@ trait FromFixture
             $params = explode(':', $relation['method']);
         }
 
-        $params[1] = Str::start(ltrim($params[1], '\\'), 'App\\Models\\');
+        $params[1] = Str::start(ltrim($params[1], '\\'), config('fixtures.models.namespace'));
         $params[2] = $params[2] ?? null;
 
         return $params;

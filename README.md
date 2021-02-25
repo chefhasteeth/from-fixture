@@ -8,7 +8,13 @@ An exerpt from the [PHPUnit 9.5 documentation](https://phpunit.readthedocs.io/en
 
 In other words, fixtures are just snapshots of data you want to load before a test to ensure the inputs and outputs are consistent.
 
-## How do I use it?
+## Installation
+
+```bash
+composer require chefhasteeth/from-fixture
+```
+
+## Basic Usage
 Use the trait in your factory classes:
 
 ```php
@@ -39,4 +45,11 @@ The `fromFixture()` method returns a collection of models, so if you need to pro
 User::factory()->fromFactory('users.json')->each(function ($user) {
     $user->doSomethingWithTheModel();
 });
+```
+
+## Testing
+To run the test suite, make sure the dependencies are installed via `composer install` and then run:
+
+```bash
+composer test
 ```

@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Herbert",
+        "_relationships": [
+            {
+                "method": "has:TestRelation",
+                "data": {
+                    "name": "Osamu"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Maynard",
+        "_relationships": [
+            {
+                "method": "has:TestRelation",
+                "data": {
+                    "name": "Peggy"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Rumpelfeldt",
+        "_relationships": [
+            {
+                "method": "has:TestRelation",
+                "data": {
+                    "name": "Dimpleswan"
+                }
+            }
+        ]
+    }
+]

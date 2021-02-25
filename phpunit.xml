@@ -11,7 +11,7 @@
     convertWarningsToExceptions="true"
     processIsolation="false"
     stopOnFailure="false"
-    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+    printerClass="NunoMaduro\Collision\Adapters\Phpunit\Printer"
 >
     <coverage processUncoveredFiles="true">
         <include>
@@ -20,7 +20,7 @@
     </coverage>
     <testsuites>
         <testsuite name="FromFixture Test Suite">
-            <directory>tests</directory>
+            <directory suffix=".php">tests</directory>
         </testsuite>
     </testsuites>
     <php>

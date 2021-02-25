@@ -6,6 +6,6 @@ class FixtureReader
 {
     public static function getContents(string $file): string
     {
-        return file_get_contents(database_path("fixtures/{$file}"));
+        return file_get_contents(config('fixtures.path') . DIRECTORY_SEPARATOR . $file);
     }
 }
