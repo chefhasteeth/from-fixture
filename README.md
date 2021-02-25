@@ -47,7 +47,21 @@ User::factory()->fromFactory('users.json')->each(function ($user) {
 });
 ```
 
-## Testing
+## Publishing the Configuration
+You can optionally publish the config file if you want to change any settings:
+
+```bash
+php artisan vendor:publish --provider="Chefhasteeth\FromFixture\FromFixtureServiceProvider" --tag="config"
+```
+
+Currently, there are two options you can change:
+
+* `fixtures.path`: A string containing the path to your fixture files. By default, this is `{project_root}/database/fixtures/`.
+* `fixtures.models.namespace`: The namespace where your models are located. By default, this is either `App` or `App\Models` depending on if you have a Models directory.
+
+(These are also configurable via your .env file with the keys `FROM_FIXTURE_PATH` and `FROM_FIXTURE_MODEL_NAMESPACE`.)
+
+## Running the Test Suite
 To run the test suite, make sure the dependencies are installed via `composer install` and then run:
 
 ```bash
