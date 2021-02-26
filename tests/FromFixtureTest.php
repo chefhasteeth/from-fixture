@@ -24,4 +24,13 @@ class FromFixtureTest extends TestCase
         $this->assertSame('Osamu', $models->firstWhere('name', 'Herbert')->testRelation->name);
         $this->assertCount(3, $models->map->testRelation->filter());
     }
+
+    /** @test */
+    public function theFixtureNameCanBeResolvedFromTheModelName()
+    {
+        $models = TestModel::factory()->fromFixture();
+
+        $this->assertInstanceOf(Collection::class, $models);
+        $this->assertCount(4, $models);
+    }
 }

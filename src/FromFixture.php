@@ -9,9 +9,12 @@ use Illuminate\Support\Str;
 
 trait FromFixture
 {
-    public function fromFixture(string $fixture, ?array $default = null): Collection
+    public function fromFixture(?string $fixture = null, ?array $default = null): Collection
     {
-        $fixtures = json_decode(FixtureReader::getContents($fixture), true);
+        $fixtures = json_decode(
+            FixtureReader::getContents($fixture ?? $this->resolveFixtureNameFromModel()),
+            true,
+        );
 
         $factories = Collection::make();
 
@@ -48,15 +51,24 @@ trait FromFixture
 
     protected function parseRelationshipMethod(array $relation): array
     {
-        $params = [$relation['method'] ?? '', $relation['model'] ?? '', $relation['name'] ?? null];
+        $params = [
+            $relation['method'] ?? '',
+            $relation['model'] ?? '',
+            $relation['name'] ?? null,
+        ];
 
         if (Str::contains($relation['method'], ':')) {
             $params = explode(':', $relation['method']);
         }
 
-        $params[1] = Str::start(ltrim($params[1], '\\'), config('fixtures.models.namespace'));
-        $params[2] = $params[2] ?? null;
+        $params[1] = (string) Str::of($params[1])->ltrim('\\')->start(config('fixtures.models.namespace'));
+        $params[2] ??= null;
 
         return $params;
+    }
+
+    protected function resolveFixtureNameFromModel(): string
+    {
+        return Str::of($this->model)->afterLast('\\')->kebab()->plural() . '.json';
     }
 }
