@@ -5,11 +5,11 @@ namespace Chefhasteeth\FromFixture\Tests\Fixtures;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TestRelation extends Model
+class DeepRelation extends Model
 {
     use HasFactory;
 
-    public $table = 'test_relations';
+    public $table = 'deep_relations';
 
     public $timestamps = false;
 
@@ -22,14 +22,6 @@ class TestRelation extends Model
      */
     protected static function newFactory()
     {
-        return TestRelationFactory::new();
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function deepRelation()
-    {
-        return $this->hasOne(DeepRelation::class);
+        return DeepRelationFactory::new();
     }
 }

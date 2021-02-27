@@ -17,7 +17,15 @@
                 "method": "has:TestRelation",
                 "data": {
                     "name": "Peggy"
-                }
+                },
+                "_relationships": [
+                    {
+                        "method": "has:DeepRelation",
+                        "data": {
+                            "name": "Shorpin"
+                        }
+                    }
+                ]
             }
         ]
     },

@@ -22,6 +22,7 @@ class FromFixtureTest extends TestCase
         $models = TestModel::factory()->fromFixture('models-with-relations.json');
 
         $this->assertSame('Osamu', $models->firstWhere('name', 'Herbert')->testRelation->name);
+        $this->assertSame('Shorpin', $models->firstWhere('name', 'Maynard')->testRelation->deepRelation->name);
         $this->assertCount(3, $models->map->testRelation->filter());
     }
 

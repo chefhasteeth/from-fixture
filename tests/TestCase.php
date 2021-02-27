@@ -32,5 +32,11 @@ abstract class TestCase extends Orchestra
             $table->foreignId('test_model_id');
             $table->string('name')->nullable();
         });
+
+        Schema::create('deep_relations', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('test_relation_id');
+            $table->string('name')->nullable();
+        });
     }
 }
