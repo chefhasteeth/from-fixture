@@ -8,11 +8,15 @@ An exerpt from the [PHPUnit 9.5 documentation](https://phpunit.readthedocs.io/en
 
 In other words, fixtures are just snapshots of data you want to load before a test to ensure the inputs and outputs are consistent.
 
+&nbsp;
+
 ## Installation
 
 ```bash
 composer require chefhasteeth/from-fixture
 ```
+
+&nbsp;
 
 ## Basic Usage
 Use the trait in your factory classes:
@@ -47,6 +51,10 @@ User::factory()->fromFactory('users.json')->each(function ($user) {
 });
 ```
 
+If you omit the filename from the `fromFactory()` method, it will guess the name of the file from the model being used. For example, a model named **UserSetting** will be transformed into `user-settings.json`. 
+
+&nbsp;
+
 ## Publishing the Configuration
 You can optionally publish the config file if you want to change any settings:
 
@@ -60,6 +68,8 @@ Currently, there are two options you can change:
 * `fixtures.models.namespace`: The namespace where your models are located. By default, this is either `App` or `App\Models` depending on if you have a Models directory.
 
 (These are also configurable via your .env file with the keys `FROM_FIXTURE_PATH` and `FROM_FIXTURE_MODEL_NAMESPACE`.)
+
+&nbsp;
 
 ## Running the Test Suite
 To run the test suite, make sure the dependencies are installed via `composer install` and then run:
